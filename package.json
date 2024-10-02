@@ -1,12 +1,17 @@
 {
   "name": "obyte-governance-discord",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "start.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node start.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Obyte",
   "license": "ISC",
-  "description": ""
+  "description": "Discord notification bot for Obyte governance",
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "ocore": "git+https://github.com/byteball/ocore.git"
+  }
 }
