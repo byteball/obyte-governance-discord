@@ -6,12 +6,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node start.js"
   },
-  "keywords": [],
+  "keywords": [
+    "obyte",
+    "governance",
+    "notification",
+    "discord"
+  ],
   "author": "Obyte",
   "license": "ISC",
   "description": "Discord notification bot for Obyte governance",
   "dependencies": {
     "discord.js": "^14.16.3",
-    "ocore": "git+https://github.com/byteball/ocore.git"
+    "headless-obyte": "git+https://github.com/byteball/headless-obyte.git",
+    "lodash": "^4.17.21",
+    "ocore": "github:byteball/ocore#v4"
   }
 }
