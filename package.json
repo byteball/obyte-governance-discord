@@ -19,6 +19,6 @@
     "discord.js": "^14.16.3",
     "headless-obyte": "git+https://github.com/byteball/headless-obyte.git",
     "lodash": "^4.17.21",
-    "ocore": "github:byteball/ocore#v4"
+    "ocore": "github:byteball/ocore"
   }
 }
