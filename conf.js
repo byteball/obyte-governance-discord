@@ -11,4 +11,4 @@ exports.SERVER_ID = process.env.SERVER_ID;
 exports.CHANNEL_ID = process.env.CHANNEL_ID;
 exports.BOT_TOKEN = process.env.BOT_TOKEN;
 
-console.log('finished server conf');
+console.log('finished governance discord conf');

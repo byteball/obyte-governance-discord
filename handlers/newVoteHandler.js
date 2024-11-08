@@ -12,13 +12,12 @@ module.exports = async ({ subject: parameterKey, value, author_addresses = [], u
     if (is_stable) {
 
         if (!(parameterKey in sysVarDescriptions)) {
-            console.error(`log(${parameterKey}): unknown parameter key`);
-            return;
+            throw Error(`log(${parameterKey}): unknown parameter key`);
         }
 
         const authorsString = author_addresses.map((adr) => `[${author_addresses.length === 1 ? adr : `${adr.slice(0, 5)}...${adr.slice(-5)}`}](https://explorer.obyte.org/address/${adr})`).join('\n');
 
-        console.error(`log(${parameterKey}): new vote has been received: ${value} by ${author_addresses.join(', ')}`);
+        console.log(`log(${parameterKey}): new vote has been received: ${value} by ${author_addresses.join(', ')}`);
 
         const channel = await discordInstance.channels.fetch(process.env.CHANNEL_ID);
 
@@ -56,9 +55,10 @@ module.exports = async ({ subject: parameterKey, value, author_addresses = [], u
                 await channel.send({ embeds: [newVoteEmbed] });
             } catch (err) {
                 console.error('error(send newVoteEmbed): ', err);
+                throw Error(err);
             }
         } else {
-            console.error('error: channel not found');
+            throw Error('error: channel not found');
         }
 
         return;

@@ -9,12 +9,11 @@ const opListToString = require("../utils/opListToString");
 
 module.exports = async ({ key, value, previousValue }) => {
     if (!(key in sysVarDescriptions)) {
-        console.error(`log(${key}): unknown parameter key`);
-        return;
+        throw Error(`log(${key}): unknown parameter key`);
     }
 
 
-    console.error(`log(${key}): new commit has been received: ${value}`);
+    console.log(`log(${key}): new commit has been received: ${value}`);
 
     const channel = await discordInstance.channels.fetch(process.env.CHANNEL_ID);
 
@@ -45,8 +44,9 @@ module.exports = async ({ key, value, previousValue }) => {
             await channel.send({ embeds: [newVoteEmbed] });
         } catch (err) {
             console.error('error(send newVoteEmbed): ', err);
+            throw Error(err);
         }
     } else {
-        console.error('error: channel not found');
+        throw Error('error: channel not found');
     }
 }
