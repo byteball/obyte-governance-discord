@@ -4,7 +4,7 @@
   "main": "start.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node start.js"
+    "start": "node start.js obyte-gov-discord"
   },
   "keywords": [
     "obyte",
