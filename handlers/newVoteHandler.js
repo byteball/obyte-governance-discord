@@ -40,13 +40,13 @@ module.exports = async ({ subject: parameterKey, value, author_addresses = [], u
                 const changes = removedOPs.map((old, index) => `~~${old}~~ -> ${newOPs[index]}`).join('\n')
 
                 newVoteEmbed
-                    .addFields({ value: opListToString(ParamsStore.getLeader(parameterKey)), name: 'Leader', inline: false })
-                    .addFields({ value: opListToString(value), name: 'Value', inline: false })
+                    .addFields({ value: opListToString(value), name: 'Voted for value', inline: false })
+                    .addFields({ value: opListToString(ParamsStore.getLeader(parameterKey)), name: 'Leader value', inline: false })
                     .addFields({ value: changes, name: 'Changes', inline: false });
             } else {
                 newVoteEmbed
-                    .addFields({ value: toLocalString(ParamsStore.getLeader(parameterKey)), name: 'Leader', inline: true })
-                    .addFields({ value: toLocalString(value), name: 'Value', inline: true })
+                    .addFields({ value: toLocalString(value), name: 'Voted for value', inline: true })
+                    .addFields({ value: toLocalString(ParamsStore.getLeader(parameterKey)), name: 'Leader value', inline: true })
             }
 
             newVoteEmbed.addFields({ value: `You can vote at [governance.obyte.org](https://governance.obyte.org/sys/${parameterKey})`, name: ' ', inline: false });
