@@ -42,7 +42,7 @@ module.exports = async ({ subject: parameterKey, value, author_addresses = [], u
                 newVoteEmbed
                     .addFields({ value: opListToString(value), name: 'Voted for value', inline: false })
                     .addFields({ value: opListToString(ParamsStore.getLeader(parameterKey)), name: 'Leader value', inline: false })
-                    .addFields({ value: changes, name: 'Changes', inline: false });
+                    .addFields({ value: changes.length > 0 ? changes : 'No any changes', name: 'Changes', inline: false });
             } else {
                 newVoteEmbed
                     .addFields({ value: toLocalString(value), name: 'Voted for value', inline: true })
