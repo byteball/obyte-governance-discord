@@ -52,7 +52,7 @@ class ParamsStore {
     }
 
     getVoterBalance(address) {
-        return this.balances.get(address);
+        return this.balances.get(address) || 0;
     }
 
     getLeader(key) {
